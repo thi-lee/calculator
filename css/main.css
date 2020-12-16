@@ -1,0 +1,19 @@
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    background-color: lightgray;
+    border: 5px black solid;
+    height: 500px;
+    width: 400px;
+}
+
+.display {
+    background-color: gray;
+    height: 50px;
+    width: 400px;
+}

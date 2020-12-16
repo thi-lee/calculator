@@ -3,17 +3,54 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    color: white;
 }
 
 .calculator {
     background-color: lightgray;
-    border: 5px black solid;
     height: 500px;
-    width: 400px;
+    width: 350px;
+}
+
+button {
+    padding: 0;
+    margin: 0;
+    font-size: 35px;
+    color: white;
 }
 
 .display {
-    background-color: gray;
-    height: 50px;
-    width: 400px;
+    background-color: #414549;
+    width: 100%;
+    height: 20%;
+    font-size: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.buttons {
+    width: 100%;
+    height: 80%;
+    color: white;
+    box-sizing: border-box;
+    display: grid;
+    float: left;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.orange {
+    background-color: #F49E31;
+}
+
+.dark-gray {
+    background-color: #5F6264;
+}
+
+.number, .decimal {
+    background-color: #7D7F81;
 }

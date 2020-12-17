@@ -21,43 +21,17 @@ numbers.forEach(number => {
         if (operator == '' ) {
             num1 += number.className[7];
             display.textContent = num1;
-        } else if (num1 != '' && num2 == '' && operator != '') {
+            console.log(operator, num1, num2);
+        } else if (operator != '') {
             num2 += number.className[7];
             display.textContent = num2;
-        } else if (num1 != '' && num2 == '' && operator == '') {
-            display.textContent = '';
-            num1 = '';
-            num1 += number.className[7];
-            display.textContent = num1;
+            console.log(operator, num1, num2);
         }
     })
 })
 
-let equal = document.querySelector('.equal');
-equal.addEventListener('click', function() {
-    res = `${operate(operator, Number(num1), Number(num2))}`;
-    display.textContent = res;
-    num1 = res;
-    num2 = '';
-    operator = '';
-})
-
-let operators = document.querySelectorAll('.operator');
-operators.forEach(op => {
-    op.addEventListener('click', function() {
-        operator = '';
-        if (op.className == 'operator add orange') {
-            operator += '+';
-        } else if (op.className == 'operator subtract orange') {
-            operator += '-';
-        } else if (op.className == 'operator multiply orange') {
-            operator += '*';
-        } else if (op.className == 'operator divide orange') {
-            operator += '/';
-        }
-        console.log(operator);
-    })
-})
+let equalSign = document.querySelector('.equal');
+equalSign.addEventListener('click', function() {num1 = equal(operator, num1, num2); num2 = ''; operator = ''});
 
 let clear = document.querySelector('.clear');
 clear.addEventListener('click', function() {
@@ -67,9 +41,25 @@ clear.addEventListener('click', function() {
     display.textContent = '';
 })
 
-let sign = document.querySelector('.sign');
-sign.addEventListener('click', function() {
-    
+let operators = document.querySelectorAll('.operator');
+operators.forEach(op => {
+    op.addEventListener('click', function() {
+        if (operator != '') {
+            num1 = equal(operator, num1, num2);
+            num2 = '';
+        }
+        operator = '';
+        num2 = '';
+        if (op.className == 'operator add orange') {
+            operator += '+';
+        } else if (op.className == 'operator subtract orange') {
+            operator += '-';
+        } else if (op.className == 'operator multiply orange') {
+            operator += '*';
+        } else if (op.className == 'operator divide orange') {
+            operator += '/';
+        }
+    })
 })
 
 function operate(operator, num1, num2) {
@@ -87,4 +77,13 @@ function operate(operator, num1, num2) {
             return (num1 / num2);
             break;
     }
+}
+
+function equal(operator, num1, num2) {
+    res = `${operate(operator, Number(num1), Number(num2))}`;
+    display.textContent = res;
+    num1 = res;
+    num2 = '';
+    operator = '';
+    return res;
 }

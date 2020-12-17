@@ -2,8 +2,6 @@
 TO DO:
 • overflow decimal numbers 
 • add negative sign (with the button)
-• adjust last row so zero takes up 2fr while . and = takes 1
-• color
 • cannot function if enter a different pair of numbers before clicking 'clear'
 */
 
@@ -74,7 +72,7 @@ function operate(operator, num1, num2) {
             return (num1 * num2);
             break;
         case '/':
-            return (num1 / num2);
+            (num2 == 0) ? 'lmao' : num1 / num2;
             break;
     }
 }

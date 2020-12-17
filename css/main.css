@@ -54,3 +54,7 @@ button {
 .number, .decimal {
     background-color: #7D7F81;
 }
+
+.zero {
+    grid-column: span 2;
+}

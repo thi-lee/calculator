@@ -143,7 +143,7 @@ function inputDecimal(dot) {
     if (displayValue === firstOperand || displayValue === secondOperand) {
         displayValue = '0';
         displayValue += dot; 
-    } else if (!displayValue.includes.toString(dot)) {
+    } else if (!displayValue.includes(dot)) {
         displayValue += dot;
     }
 }
